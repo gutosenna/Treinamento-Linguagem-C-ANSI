@@ -1,0 +1,63 @@
+/* 
+	Curso de Linguagem C ANSI
+
+	Aula 41: Variáveis GLobais vs Variáveis Locais
+
+	Autor: Estudante Sérgio Senna	Data: mes/ano
+	
+ */
+
+// --- Bibliotecas Auxiliares ---
+#include <stdio.h>
+#include <stdlib.h>
+
+// --- Protótipo das Funções Auxiliares ---
+void funcao1();
+void funcao2();
+
+// --- Variáveis Globais ---
+int counter; // Variável Global para contagem
+
+// --- Função Principal ---
+int main(int argc, char *argv[]) 
+{
+	counter = 200;
+	
+	funcao1();
+
+  system("PAUSE");		
+  return 0;
+
+} //end main
+
+// --- Desenvolvimento das Funções Auxiliares ---
+void funcao1()
+{
+	funcao2();
+	
+	printf("\n\nO valor de counter eh %d\n\n", counter); // imprimir o valor 200
+		
+} // end funcao1
+
+void funcao2()
+{
+	int counter;
+	
+	for(counter = 1; counter < 20; counter++) printf("-");
+	
+} // end funcao2
+
+/*
+	Os 3 motivos para se evitar o uso de variáveis globais:
+	
+	1) Ocupam a memória durante todo o tempo em que o programa está sendo 
+	executado, não somente quando necessário;
+	
+	2) Usar uma variável local torna menos geral uma função, pois ela dependerá 
+	de alguma definição externa;
+	
+	3) Um grande número de variáveis globais pode ocasionar erros no projeto
+	devido efeitos desconhecidos.
+	
+*/
+
